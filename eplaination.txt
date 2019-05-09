@@ -1,0 +1,175 @@
+Nodemon is a package that helps you automaticaly restart your app when it notice any changes in your code. Instead of us having to kill our server when we make changes, nodemon takes care of that for us by automatically restarting the app when we make a new change to our code.
+
+So we need to install nodemon globally on our system
+	npm install nodemon --global
+	yarn global add nodemon
+
+
+1. 	install express
+		npm install express --save
+		yarn add express
+
+
+2. lets require our express in our app.
+
+
+lets use postman to test our route if it is working fine. Post man is a great tool for testing ur api
+
+to start using our mongoDb databse we need to install mongoose
+		yarn add mongoose
+		npm install mongoose --save
+
+
+create a folder inside ur project called model
+
+inside ur model folder we will create the model for our database
+since we are going to have a data called task inside our database lets create a file called task.js inside our model folder
+
+inside my task.js file i will define how my task database field is going to look like
+
+
+
+
+There is something called connection string. It is what you use to connect to the remote server with your application. Our remote server here is mongodb atlas. i would open it now and show how to get it.
+
+1. connect
+2. since we are connecting to an app, we use connect to application
+3. You need to add your ip address to the whitelist, so as to allow connections. preferrably allow connections from anywhere. DO IT NOW!!!!!!
+
+Now we connect.
+
+In your app.js change import mongoose to var mongoose = require('mongoose')
+
+we would put our connection string in a constant.
+
+const uri = 'mongodb+srv://dapo:<password>@node-app-8lys0.mongodb.net/test?retryWrites=true'
+
+does your password have special characters?
+
+if it does not have, then:
+replace <password> with your password for the user and replace test with your database name
+
+next we use mongoose.connect to access the database. we can also use mongodb but we are using mongoose
+
+syntax:
+
+mongoose.connect(uri) .then()
+
+for our options we would use reconnect tries and pool size
+
+Are you connected?
+
+
+The connection method we have shpwed here is for a remote database  server. To be able to use your installed mongodb server all u need to do is change the uri to your localhost
+
+
+
+since we have established connection to the database, how do will now save or query the databse?
+
+
+we will be using the mongoose liberary that we have installed to do that.
+
+first we need to import our database models into our app
+
+
+when anyone signs up, we also want to save the login credention into the login collection in the database.
+
+so we will save to the login collection immediately we are saving to the signup collection
+
+
+
+lets test the sign up and see if it works
+
+
+we have implemented the sign up. What we did inside the sign up was that when anybody signs up, it should save the persons username and password inside the login collection in the database.
+
+
+for anyone to login, we need to check if the password and username is correct and exist in the database... i.e the logon collection.
+
+
+Model.find(condition, function)
+
+condition here is what i want to find inside my database
+
+function here is what should happen after it search for the condition inside my databse
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
