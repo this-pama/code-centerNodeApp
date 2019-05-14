@@ -34,6 +34,11 @@ app.use(bodyParser.json())
 
 //we need to to provide route for our application
 //the user will post data to the server when signing up so we need to use a post method
+
+app.get('/', function(req, res){
+	res.send("Welcome")
+})
+
 app.post('/signup', function(req, res){
 	//i'm expecting data from a form from the server so i will use a bodule called Body Parser to achieve that.
 	var signupData = req.body
