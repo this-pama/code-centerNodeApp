@@ -4,8 +4,9 @@ Node Js session for student at code center. This is a practical example of build
 Build APIs for an E-commerce app. The user of the app should be able to sign up, login, go to home page and be greeted will a welcome message, get email notification when they register. User should be able to log out, post images, update their profile, delete an image and any other functionality you can think of.
 
 ### Available Endpoints
-* "/signup": Method POST. This is the endpoint for user to register.
-	* Request Object:
+* **"/"** : Method **GET**. This is the home endpoint.
+* **"/signup"**: Method **POST**. This is the endpoint for user to register.
+	* **Request Object**:
 		* firstName : Type(String)
 		* lastName : Type(String)
 		* username : Type(String)
@@ -17,7 +18,7 @@ Build APIs for an E-commerce app. The user of the app should be able to sign up,
 		* address : Type(String)
 		* state : Type(String)
 
-	* Response Object:
+	* **Response Object**:
 		* firstName : Type(String)
 		* lastName : Type(String)
 		* username : Type(String)
@@ -28,12 +29,12 @@ Build APIs for an E-commerce app. The user of the app should be able to sign up,
 		* phoneNumber : Type(Number)
 		* address : Type(String)
 		* state : Type(String)
-		
 
-* "/login": Method POST. This is the endpoint for login into the app.
-	* Request Object:
+
+* **"/login"**: Method **POST**. This is the endpoint for login into the app.
+	* **Request Object**:
 		* username
 		* password
-	* Response Object:
+	* **Response Object**:
 		* username
 		* password
