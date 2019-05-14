@@ -6,16 +6,34 @@ Build APIs for an E-commerce app. The user of the app should be able to sign up,
 ### Available Endpoints
 * "/signup": Method POST. This is the endpoint for user to register.
 	* Request Object:
+		* firstName : Type(String)
+		* lastName : Type(String)
+		* username : Type(String)
+		* password : Type(String)
+		* bio : Type(String)
+		* email : Type(String)
+		* gender : Type(String)
+		* phoneNumber : Type(Number)
+		* address : Type(String)
+		* state : Type(String)
+
+	* Response Object:
+		* firstName : Type(String)
+		* lastName : Type(String)
+		* username : Type(String)
+		* password : Type(String)
+		* bio : Type(String)
+		* email : Type(String)
+		* gender : Type(String)
+		* phoneNumber : Type(Number)
+		* address : Type(String)
+		* state : Type(String)
+		
+
+* "/login": Method POST. This is the endpoint for login into the app.
+	* Request Object:
 		* username
 		* password
 	* Response Object:
 		* username
 		* password
-
-* "/login": Method POST. This is the endpoint for login into the app.
-		* Request Object:
-			* username
-			* password
-		* Response Object:
-			* username
-			* password
