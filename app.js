@@ -1,7 +1,7 @@
 var express = require('express')
 var bodyParser = require('body-parser')
 var app = express()
-var port = process.env.port || 3000 
+var port = process.env.PORT || 3000 
 
 var mongoose = require('mongoose')  // this is the same as var mongoose = require('mongoose')
 
