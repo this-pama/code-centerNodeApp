@@ -38,3 +38,38 @@ Build APIs for an E-commerce app. The user of the app should be able to sign up,
 	* **Response Object**:
 		* username
 		* password
+
+* **"/task"**: Method **POST**. This is the endpoint for user to add task.
+	* **Request Object**:
+		* taskName : Type(String)
+		* time : Type(String)
+		* description: Type(String)
+		* isCompleted : Type(Boolean)
+		* reminderTime : Type(Number)
+
+	* **Response Object**:
+		* taskName : Type(String)
+		* time : Type(String)
+		* description: Type(String)
+		* isCompleted : Type(Boolean)
+		* reminderTime : Type(Number)
+
+* **"/update/:taskId"**:  **PATCH** Method. This is the endpoint to update task by its database unique id.
+	 * **Request Object**:
+		* taskName : Type(String)
+		* time : Type(String)
+		* description: Type(String)
+		* isCompleted : Type(Boolean)
+		* reminderTime : Type(Number)
+
+	* **Response Object**:
+		* taskName : Type(String)
+		* time : Type(String)
+		* description: Type(String)
+		* isCompleted : Type(Boolean)
+		* reminderTime : Type(Number)
+
+* **"/delete/:taskId"**: **DELETE** Method. This is the endpoint to delete a task by it's unique ID.
+	* **Response** : "task deleted."
+*  **"'/logout"**: **GET** Method. This is the endpoint to logout.
+	* **Response** : "Log out successful."
