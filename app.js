@@ -30,7 +30,12 @@ app.use(bodyParser.urlencoded({ extended: false }))
 // parse application/json
 app.use(bodyParser.json())
 
-
+//allow cross origin request
+app.use(function(req, res, next) {
+	res.header("Access-Control-Allow-Origin", "*");
+	res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+	next();
+});
 
 //we need to to provide route for our application
 //the user will post data to the server when signing up so we need to use a post method
@@ -46,12 +51,12 @@ app.post('/signup', function(req, res){
 	// then save the data inside my databse
 	var saveSignUpData = new SignUp(req.body)  // this create a new model from our database model
 	saveSignUpData.save(function (err, dataSignUp){   // this save to the SignUp collection
-		if(err){ res.send(err)}
+		if(err){ res.json({err})}
 		else{
 			var saveLoginData = new Login({ username : req.body.username, password : req.body.password})
 
 			saveLoginData.save(function(err, data){  // if signup save is successful, it saves to the login collection
-				if(err) { res.send(err)}
+				if(err) { res.json({err})}
 				else{ res.json(dataSignUp)} // this sends the data that is saved to the signup collection to the user
 			})
 		}
@@ -68,14 +73,16 @@ app.post('/login', function(req, res){
 
 	// check if the login credentials is correct in your database
 	Login.find({username: req.body.username, password: req.body.password}, function(err, data){
-		if(err){ res.send(err)}
+		if(err){  res.json({err})}
 		else{ 
 			console.log(data)
 			if(data[0]){
-				res.send('Login Successful')
+				res.json(data[0])
 			}
 			else{
-				res.send("User does not exist.")
+				res.json({
+					text: "User does not exist"
+				})
 			}
 			
 		}
@@ -91,7 +98,7 @@ app.post('/task', function(req, res){
 	//save task to the database
 	var saveTaskData = new Task(req.body)
 	saveTaskData.save((err, data) => {
-		if(err){ res.send(err)}
+		if(err){ res.json({err})}
 			else{ res.json(data)}
 	})
 })
@@ -103,8 +110,8 @@ app.patch('/update/:taskId', function(req, res){
 	var update = req.body
 	//update your database
 	Task.findByIdAndUpdate(req.params.taskId, update, function(err, data){
-		if(err){ res.send(err)}
-		else{ res.send(data)}
+		if(err){ res.json({err})}
+		else{ res.json(data)}
 	})
 })
 
@@ -117,15 +124,21 @@ app.delete('/delete/:taskId', function(req, res){
 
 	//search for the task in the database using its id and delete if found
 	Task.findByIdAndRemove(taskID, function(err){
-		if(err){ res.send(err)}
-		else{ res.send(" task deleted.")}
+		if(err){ res.json({err})}
+		else{ 
+			res.json({
+					text: "task deleted."
+				})
+			}
 	})
 })
 
 
 //handle logout route
 app.get('/logout', function(req, res){
-	res.send('Log out successful.')
+	res.json({
+		text: "Logout Successful"
+	})
 })
 
 app.listen(port, function(){ console.log(`Server started at port ${port}`)})
