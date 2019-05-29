@@ -141,4 +141,15 @@ app.get('/logout', function(req, res){
 	})
 })
 
-app.listen(port, function(){ console.log(`Server started at port ${port}`)})
+//handle get method to get all task from database
+//the {} inside find means it should return all the data in the Task model
+app.get('/all_task', function(req, res){
+	Task.find({}, function(err, data){
+		if(err){ res.json({err})}
+		else{
+			res.json(data)
+		}
+	})
+})
+
+app.listen(port, function(){ console.log(`Server started at port ${port}`)}) 
